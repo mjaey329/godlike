@@ -8,5 +8,7 @@ public class GodlikeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GodlikeApplication.class, args);
+		
+		
 	}
 }
