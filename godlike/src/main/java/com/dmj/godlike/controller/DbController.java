@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dmj.godlike.beans.Words;
+import com.dmj.godlike.mapper.WordsBase;
+import com.dmj.godlike.service.WordsBaseService;
+
 @RestController
 @RequestMapping("mydb")
 public class DbController {
@@ -19,24 +23,33 @@ public class DbController {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@RequestMapping("/getUsers")
+//	@RequestMapping("/getUsers")
+//	@ResponseBody
+//	public List<Map<String, Object>> getDbType() {
+//		String sql = "select * from word_info";
+//		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
+//		System.out.println(list);
+//		for (Map<String, Object> map : list) {
+//			Set<Entry<String, Object>> entries = map.entrySet();
+//			if (entries != null) {
+//				Iterator<Entry<String, Object>> iterator = entries.iterator();
+//				while (iterator.hasNext()) {
+//					Entry<String, Object> entry = (Entry<String, Object>) iterator.next();
+//					Object key = entry.getKey();
+//					Object value = entry.getValue();
+//					System.out.println(key + ":" + value);
+//				}
+//			}
+//		}
+//		return list;
+//	}
+
+	@Autowired
+	private WordsBaseService wordsBase;
+
+	@RequestMapping(value = "selectAll")
 	@ResponseBody
-	public List<Map<String, Object>> getDbType() {
-		 String sql = "select * from word_info";
-		 List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
-		 System.out.println(list);
-		 for (Map<String, Object> map : list) {
-		 Set<Entry<String, Object>> entries = map.entrySet();
-		 if (entries != null) {
-		 Iterator<Entry<String, Object>> iterator = entries.iterator();
-		 while (iterator.hasNext()) {
-		 Entry<String, Object> entry = (Entry<String, Object>) iterator.next();
-		 Object key = entry.getKey();
-		 Object value = entry.getValue();
-		 System.out.println(key + ":" + value);
-		 }
-		 }
-		 }
-		 return list;
+	public  List<Words> selectAll() {
+		return wordsBase.selectAll();
 	}
 }

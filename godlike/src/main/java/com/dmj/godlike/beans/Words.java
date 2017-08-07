@@ -20,9 +20,6 @@ public class Words {
 	/** Word Chineses */
 	private String wordC;
 
-	/** Word CreateTime */
-	private Date wordCreateTime;
-
 	public int getWordUID() {
 		return wordUID;
 	}
@@ -55,26 +52,17 @@ public class Words {
 		this.wordC = wordC;
 	}
 
-	public Date getWordCreateTime() {
-		return wordCreateTime;
-	}
-
-	public void setWordCreateTime(Date wordCreateTime) {
-		this.wordCreateTime = wordCreateTime;
-	}
-
-	public Words(int wordID, String wordE, String wordC, Date wordCreateTime) {
+	public Words(int wordUID, int wordID, String wordE, String wordC) {
 		super();
+		this.wordUID = wordUID;
 		this.wordID = wordID;
 		this.wordE = wordE;
 		this.wordC = wordC;
-		this.wordCreateTime = wordCreateTime;
 	}
 
 	@Override
 	public String toString() {
-		return "Words [wordUID=" + wordUID + ", wordID=" + wordID + ", wordE=" + wordE + ", wordC=" + wordC
-				+ ", wordCreateTime=" + wordCreateTime + "]";
+		return "Words [wordUID=" + wordUID + ", wordID=" + wordID + ", wordE=" + wordE + ", wordC=" + wordC;
 	}
 
 }

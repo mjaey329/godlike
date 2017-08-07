@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dmj.godlike.mapper.WordsBase">
+
+	<resultMap type="com.dmj.godlike.beans.Words" id="words">
+		<id property="wordUID" javaType="int" jdbcType="INTEGER" column="uid" />
+		<result property="wordID" javaType="int" jdbcType="INTEGER"
+			column="word_id" />
+		<result property="wordE" javaType="String" jdbcType="VARCHAR"
+			column="word_e" />
+		<result property="wordC" javaType="String" jdbcType="VARCHAR"
+			column="word_c" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.dmj.godlike.beans.Words">
+		INSERT INTO word_info
+		VALUES(#{wordUID},#{wordID},#{wordE},#{wordC})
+	</insert>
+
+	<select id="selectAll" resultMap="words">
+	 	SELECT * FROM word_info  
+	</select>
+
+	<select id="selectById" resultMap="words">
+		SELECT * FROM word_info
+		WHERE
+		word_id=#{WordID}
+	</select>
+
+</mapper>
