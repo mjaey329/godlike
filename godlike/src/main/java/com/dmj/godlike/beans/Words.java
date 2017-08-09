@@ -1,6 +1,5 @@
 package com.dmj.godlike.beans;
 
-import java.util.Date;
 
 /**
  * @author dmj
@@ -58,6 +57,10 @@ public class Words {
 		this.wordID = wordID;
 		this.wordE = wordE;
 		this.wordC = wordC;
+	}
+	
+	public Words() {
+		
 	}
 
 	@Override

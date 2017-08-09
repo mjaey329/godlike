@@ -14,12 +14,13 @@
 	</resultMap>
 
 	<insert id="insert" parameterType="com.dmj.godlike.beans.Words">
-		INSERT INTO word_info
-		VALUES(#{wordUID},#{wordID},#{wordE},#{wordC})
+		INSERT IGNORE INTO word_info
+		(word_e,word_c)
+		VALUES(#{wordE},#{wordC})
 	</insert>
 
 	<select id="selectAll" resultMap="words">
-	 	SELECT * FROM word_info  
+		SELECT * FROM word_info
 	</select>
 
 	<select id="selectById" resultMap="words">
